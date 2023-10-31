@@ -88,7 +88,7 @@ const Home = ({children}) => {
                             <Link to="/login">LOGIN</Link>
                           </button>
                           <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full'>
-                            <Link to="/login">LOGOUT</Link>
+                            <Link to="/sign">Signup</Link>
                           </button>
                         </div>
                     </li>
