@@ -32,10 +32,13 @@ const Home = ({children}) => {
         
     }
 
-    function handleLogout(e) {
+   async function handleLogout(e) {
         e.preventDefault()
 
-        // const res = await dispatch(logout())
+        const res = await dispatch(logout())
+        if (res?.payload?.success) {
+          
+        }
         navigate("/")
     }
 

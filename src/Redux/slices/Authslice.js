@@ -40,6 +40,22 @@ export const login = createAsyncThunk("/auth/login",async(data)=>{
     }
 })
 
+export const logout = createAsyncThunk("/auth/logout", async ()=>{
+    try {
+        const res = axiosInstance.post("user/logout",data)  
+        toast.promise(res,{
+          loading:"Wait! logout is in progress",
+          success:(data)=>{
+              return data?.data?.message
+          },
+          error:"Failed to logout"
+      })
+      return (await res).data 
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+
 const authSlice = createSlice({
     name:"auth",
     initialState: initialState ,
