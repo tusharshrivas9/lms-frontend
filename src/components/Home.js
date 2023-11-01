@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import { logout } from '../Redux/slices/Authslice';
 
 
 const Home = ({children}) => {
