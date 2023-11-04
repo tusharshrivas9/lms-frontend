@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from "react-hot-toast";
 import { createAccount } from '../Redux/slices/Authslice'
+import { isEmail, isValidPassword } from '../helper/regexMatch'
 
 const Sign = () => {
     const dispatch = useDispatch()
@@ -55,11 +56,11 @@ const Sign = () => {
             toast.error("Name should be atleast 5 char")
             return
         }
-        if (!SignupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        if (!isEmail(SignupData.email)) {
             toast.error("invalid email id")
             return
         }
-        if (!SignupData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
+        if (isValidPassword(SignupData.password)) {
             toast.error("atleast one number & one special character")
         }
         const formData = new FormData()
