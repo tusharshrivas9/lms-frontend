@@ -73,6 +73,13 @@ const Home = ({children}) => {
                     </li>
                 )
             }
+            {
+                isLoggedin && role === "ADMIN" && (
+                    <li>
+                        <Link to="/course/create">Create New Course</Link>
+                    </li>
+                )
+            }
             <li>
                 <Link to="/courses">All courses</Link>
             </li>
